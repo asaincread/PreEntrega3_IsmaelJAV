@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block contenido_titulo %}
+    <h1 class="mb-5">Pagina de los estudiantes</h1>
+{% endblock %}
+{% block contenido_cambia %}
+  <h4>Resultado de los estudiantes encontrados </h4>
+  {% if estudiante %}
+    {% for nombre in estudiante %}
+      <p>{{ nombre }}</p>
+    {% endfor %}
+  {% else %}
+    <h5>No se encontraron ningun  estudiante, por favor revise bien los datos ingresados </h5>
+  {% endif %}
+
+
+{% endblock %}

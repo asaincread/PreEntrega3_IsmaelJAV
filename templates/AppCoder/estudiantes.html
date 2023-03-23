@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block contenido_titulo %}
+    <h2 class="mb-5">Pagina de Estudiantes</h2>
+{% endblock %}
+{% block contenido_cambia %}
+<h6>Indique el nombre del estudiante y apellido para agregarlo </h6>
+    <form action="{% url 'AppCoderEstudiantes' %}" method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value ="Enviar">
+    </form>
+    <br><hr>
+<h6>Por favor, indique el nombre y apellido del estudiante que desea buscar </h6>
+    <form action="{% url 'AppCoderBuscarEstudiantes' %}">
+        {{ form_busqueda.as_p }}
+        <input type="submit" value ="Buscar">
+    </form>
+    <br><hr>
+    {% if cursos %}
+        {% for curso in cursos %}
+            <p>curso: {{ curso.nombre }}</p>
+            <p>camada: {{ curso.camada }}</p>
+        {% endfor %}
+    {% else %}
+        <h1>No hay cursos en el momento</h1>
+    {% endif %}-->
+{% endblock %}
